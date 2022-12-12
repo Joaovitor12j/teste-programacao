@@ -36,9 +36,9 @@ class UsuarioController extends Controller{
     public function buscarUsuario($id) {
         $usuario = Usuario::find($id);
 
-        //$dados = json_encode($usuario);
+        $dados = json_encode($usuario);
        
-        return $usuario;
+        return $dados;
     }
 
     public function criarUsuario()

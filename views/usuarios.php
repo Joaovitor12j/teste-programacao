@@ -422,6 +422,7 @@
     <script src="../public/js/scripts-globals/alerta.js"> </script>
     <!-- <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
     <script> 
@@ -437,42 +438,44 @@
                 rotaVisualizar = rotaVisualizar.replace('id',idUsuario);
                 // console.log(rotaVisualizar);
                 // var rotaVisualizar =
-                // 
 
-                // $.ajax({
-                //     url: rotaVisualizar,
-                //     type: 'GET',
-                //     dataType: 'json',
-                //     async: true,
-                //     success: function(response) {
-                //         $('#nome').val(dados);
-                        
-                //     }
-                // });
+                $.ajax({
+                    url: rotaVisualizar,
+                    type: 'GET',
+                    dataType: 'json',
+                    async: true,
+                    success: function(response) {
+                        console.log(response);
+                        $('#nome').val(response);
+                    }
+                });
 
 
                 $.getJSON(rotaVisualizar, function (dados) {
                     console.log(dados);
+                    console.log('rotaVisualizar');
                     // $('#cpf').val(dados.cpf);
                 });
             });
 
             $('#btnDeletar').click(function(event){
-                $.alert({
-                    title: 'Aviso',
-                    content: '<p class="font-size-15">Para visualizar, selecione um aluno.</p>',
-                    buttons: {
-                        confirm: {
-                            text: 'Ok',
-                            btnClass: 'btn-success'
-                        }
+                swal({
+                    title: "Atenção!",
+                    text: "Deseja Excluir o Usuário?",
+                    icon: "warning",
+                    buttons: true,
+                }).then(function(result) {
+                    if (result) {
+                        window.location.href = "usuarios";
+                    } else {
+                        
                     }
                 });
             });
 
             
 
-            $().cpfcnpj({
+            $('.validar-cpf').cpfcnpj({
                 mask: true,
                 validate: 'cpf',
                 event: 'focusout',
