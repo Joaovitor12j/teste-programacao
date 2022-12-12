@@ -9,6 +9,13 @@ Após baixar o código, se estiver compactado, extrai-os e coloque-os no diretó
 
 Executar o coomposer install para baixar as dependências.
 
+As rotas foram definidas como: {
+
+public/login;
+public/usuarios;
+
+}
+
 você deve estar certo de que o script esteja em um diretório que possa ser lido pelo servidor web local ou, que tenha permissões suficiente de acesso ao diretório para utilizar o servidor embutido do php. 
 ## Feito por
 
