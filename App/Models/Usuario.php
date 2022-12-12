@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Usuario;
 use config\Conexao;
 use PDO;
 
