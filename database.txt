@@ -1,0 +1,22 @@
+CREATE TABLE usuarios
+(
+  id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  cpf VARCHAR(20),
+  nome VARCHAR(100),
+  email VARCHAR(100),
+  telefone VARCHAR (30),
+  senha VARCHAR(200)
+);
+
+CREATE TABLE endereco
+(
+  end_id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  end_usuario_id INT(11) UNSIGNED,
+  end_logradouro VARCHAR(100),
+  end_numero VARCHAR (50),
+  end_bairro VARCHAR (100),
+  end_complemento VARCHAR(100),
+  end_cidade VARCHAR(100),
+  end_estado VARCHAR(100),
+  FOREIGN KEY(end_usuario_id) REFERENCES usuarios(id)
+);
