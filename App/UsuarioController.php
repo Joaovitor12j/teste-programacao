@@ -62,7 +62,7 @@ class UsuarioController extends Controller{
 
         $usuario->create($usuario);
         
-        if ($usuario->create()) {
+        if ($usuario) {
             return $this->index();
         }
     }
