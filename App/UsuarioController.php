@@ -17,9 +17,9 @@ class UsuarioController extends Controller{
 
         $usuario = Usuario::buscarCpf($this->request->login);
         
-        if($usuarios) {
+        if($usuario) {
             
-            if(password_verify($this->request->senha, $usuarios->senha)) {
+            if(password_verify($this->request->senha, $usuario->senha)) {
               
             }
 
@@ -88,7 +88,7 @@ class UsuarioController extends Controller{
 
         $usuario->update($usuario);
  
-        return $this->listar();
+        return $this->index();
     }
 
     public function excluir($dados)
